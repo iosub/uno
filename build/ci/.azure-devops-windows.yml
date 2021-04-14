@@ -6,7 +6,8 @@ jobs:
   displayName: 'NuGet Packages'
   timeoutInMinutes: 90
 
-  pool: ${{ parameters.poolName }}
+  pool:
+    vmImage: ${{ parameters.vmImage }}
 
   strategy:
     matrix:
