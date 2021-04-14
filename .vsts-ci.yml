@@ -42,7 +42,7 @@ variables:
 jobs:
 - template: build/ci/.azure-devops-windows.yml
   parameters:
-    poolName: '$(windowsScaledPool)'
+    poolName: '$(windowsHostedVMImage)'
 
 - template: build/ci/.azure-devops-project-template-tests.yml
   parameters:
