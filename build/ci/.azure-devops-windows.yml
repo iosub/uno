@@ -89,7 +89,7 @@ jobs:
   - task: DotNetCoreCLI@2
     inputs:
       workingDirectory: src\SamplesApp\SamplesApp.net6mobile
-      arguments: -c Release
+      arguments: -c Release  /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer)-net6.binlog
 
   - task: MSBuild@1
     inputs:
