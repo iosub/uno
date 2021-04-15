@@ -266,7 +266,6 @@ using System;
 using System.Threading;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
-using Foundation;
 using System.Threading.Tasks;
 using Uno.Disposables;
 
