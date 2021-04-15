@@ -86,6 +86,11 @@ jobs:
     condition: and(succeeded(), eq(variables['UNO_UWP_BUILD'], 'false'))
     displayName: Convert source tree to WinUI 3 structure
 
+  - task: DotNetCoreCLI@2
+    inputs:
+      workingDirectory: src\SamplesApp\SamplesApp.net6mobile
+      arguments: -c Release
+
   - task: MSBuild@1
     inputs:
       solution: Build/Uno.UI.Build.csproj
