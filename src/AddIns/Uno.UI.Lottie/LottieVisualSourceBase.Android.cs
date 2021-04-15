@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NET6_0
+using System;
 using System.Threading;
 using Android.Animation;
 using Android.Widget;
@@ -260,3 +261,4 @@ namespace Microsoft.Toolkit.Uwp.UI.Lottie
 		}
 	}
 }
+#endif
