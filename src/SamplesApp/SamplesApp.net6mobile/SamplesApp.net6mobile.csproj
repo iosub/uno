@@ -5,6 +5,7 @@
 		<AssemblyName>SamplesApp</AssemblyName>
 		<!--<BuildingInsideUnoSourceGenerator>true</BuildingInsideUnoSourceGenerator>-->
 		<DefineConstants>XAMARIN;HAS_UNO</DefineConstants>
+		<IsUnoHead>true</IsUnoHead>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(UnoTargetFrameworkOverride)'!=''">
@@ -13,9 +14,6 @@
 	
 	<PropertyGroup>
 		<IsUiAutomationMappingEnabled>true</IsUiAutomationMappingEnabled>
-		<UnoSourceGeneratorCaptureGenerationHostOutput>true</UnoSourceGeneratorCaptureGenerationHostOutput>
-
-		<UnoSourceGeneratorUnsecureBinLogEnabled>true</UnoSourceGeneratorUnsecureBinLogEnabled>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-android'">
