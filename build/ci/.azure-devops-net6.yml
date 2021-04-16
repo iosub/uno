@@ -2,8 +2,8 @@ parameters:
   poolName: ''
 
 jobs:
-- job: VS_Latest
-  displayName: 'NuGet Packages'
+- job: net6_build
+  displayName: '.NET 6 Package Build'
   timeoutInMinutes: 90
 
   pool: ${{ parameters.poolName }}
