@@ -27,7 +27,8 @@
 		<RepositoryUrl>https://github.com/unoplatform/uno</RepositoryUrl>
 		<Description>This package provides the extensions to MSAL (Microsoft.Identity.Client) for an Uno Platform application.</Description>
 		<Copyright>Copyright (C) 2015-2020 nventive inc. - all rights reserved</Copyright>
-		
+
+		<PackageId>Uno.UI.MSAL</PackageId>
 		<PackageId Condition="'$(UNO_UWP_BUILD)'!='true'">Uno.WinUI.MSAL</PackageId>
 	</PropertyGroup>
 
