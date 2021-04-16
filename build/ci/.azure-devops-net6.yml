@@ -12,9 +12,11 @@ jobs:
     matrix:
       UWP:
         UNO_UWP_BUILD: true
+        XAML_FLAVOR_BUILD: UWP 
 
       WinUI:
         UNO_UWP_BUILD: false
+        XAML_FLAVOR_BUILD: WinUI 
 
   variables:
     CombinedConfiguration: Release|Any CPU
@@ -101,7 +103,7 @@ jobs:
         **/bin/**/*.dll
         **/bin/**/*.pdb
         **/bin/**/*.xml
-      TargetFolder: $(build.artifactstagingdirectory)\bin-$(UNO_UWP_BUILD)
+      TargetFolder: $(build.artifactstagingdirectory)\bin-$(XAML_FLAVOR_BUILD)
       CleanTargetFolder: false
       OverWrite: false
       flattenFolders: false

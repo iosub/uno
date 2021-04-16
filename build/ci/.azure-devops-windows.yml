@@ -27,16 +27,6 @@ jobs:
     # This is required to be able to use hard links as much as possible
     NUGET_PACKAGES: $(Agent.WorkFolder)\.nuget
 
-    # net6 related
-    DotNetVersion: 6.0.100-preview.3.21202.5
-    DotNet.Cli.Telemetry.OptOut: true
-    Android.Msi: https://dl.internalx.com/vsts-devdiv/Xamarin.Android/public/net6/4624420/6.0.1xx-preview3/7d6cd1cde4182d7db2cfc5d0b55364c972b6d34f/Microsoft.NET.Workload.Android.11.0.200.196.msi
-    Android.Pkg: https://dl.internalx.com/vsts-devdiv/Xamarin.Android/public/net6/4624420/6.0.1xx-preview3/7d6cd1cde4182d7db2cfc5d0b55364c972b6d34f/Microsoft.NET.Workload.Android-11.0.200-preview.3.196.pkg
-    iOS.Msi: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/Microsoft.NET.Workload.iOS.14.4.100-preview.3.1326.msi
-    iOS.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.iOS.Bundle.14.4.100-preview.3.1326.pkg
-    macOS.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.macOS.Bundle.11.1.100-preview.3.1379.pkg
-    MacCatalyst.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.MacCatalyst.Bundle.14.3.100-preview.3.471.pkg
-
   steps:
   - checkout: self
     clean: true
@@ -59,21 +49,6 @@ jobs:
       packageType: runtime
       version: 2.2.x
 
-  - powershell: |
-      $ProgressPreference = 'SilentlyContinue'
-      Invoke-WebRequest -Uri "https://dot.net/v1/dotnet-install.ps1" -OutFile dotnet-install.ps1
-      & .\dotnet-install.ps1 -Version $(DotNetVersion) -InstallDir "$env:ProgramFiles\dotnet\" -Verbose
-      & dotnet --list-sdks
-    displayName: install .NET $(DotNetVersion)
-    errorActionPreference: stop
-
-  - powershell: |
-      & dotnet tool install --global boots
-      & boots $(Android.Msi)
-      & boots $(iOS.Msi)
-    displayName: install .NET workloads
-    errorActionPreference: stop
-
   # Required for the Wasm uitests project
   - task: NodeTool@0
 
@@ -85,11 +60,6 @@ jobs:
 
     condition: and(succeeded(), eq(variables['UNO_UWP_BUILD'], 'false'))
     displayName: Convert source tree to WinUI 3 structure
-
-  - task: DotNetCoreCLI@2
-    inputs:
-      workingDirectory: src\SamplesApp\SamplesApp.net6mobile
-      arguments: -c Release  /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer)-net6-$(UNO_UWP_BUILD).binlog
 
   - task: MSBuild@1
     inputs:
