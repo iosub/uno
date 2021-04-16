@@ -64,6 +64,13 @@
   </PropertyGroup>
 
   <!--
+  Adjust the output path for all projects for easier publishing
+  -->
+  <PropertyGroup Condition="'$(CI_Build)'=='true'">
+	<OutputPath>$(ArtifactsDir)\$(MSBuildProjectName)</OutputPath>
+  </PropertyGroup>
+
+  <!--
   Adjust the output paths for runtime project in order for those
   projects to stay in the same folder as the original referenced one.
   -->
