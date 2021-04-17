@@ -207,7 +207,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uno.UI.FluentTheme", "Uno.U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uno.UI.FluentTheme.Skia", "Uno.UI.FluentTheme\Uno.UI.FluentTheme.Skia.csproj", "{E7113F80-584B-4DF1-9BF0-166BB453B807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uno.UI.Tests.ViewLibraryProps", "Uno.UI.Tests.ViewLibraryProps\Uno.UI.Tests.ViewLibraryProps.csproj", "{68090F3E-ACE3-49D0-BC68-151F8A92A38B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uno.UI.Tests.ViewLibraryProps", "Uno.UI.Tests.ViewLibraryProps\Uno.UI.Tests.ViewLibraryProps.csproj", "{68090F3E-ACE3-49D0-BC68-151F8A92A38B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uno.Foundation.net6", "Uno.Foundation\Uno.Foundation.net6.csproj", "{C473858B-8ECF-4476-8CBA-05EA456FFE0E}"
 EndProject
@@ -232,36 +232,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uno.UI.MSAL.net6", "AddIns\Uno.UI.MSAL\Uno.UI.MSAL.net6.csproj", "{17BB7190-F406-4A26-9C44-4F494B24CF83}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{04b1b5eb-d42e-47de-ada0-eb863e5574fd}*SharedItemsImports = 13
-		SamplesApp\Benchmarks.Shared\Benchmarks.Shared.projitems*{21206058-d5ef-466d-8e4d-ac62357fb479}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{21206058-d5ef-466d-8e4d-ac62357fb479}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{21206058-d5ef-466d-8e4d-ac62357fb479}*SharedItemsImports = 5
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{21206058-d5ef-466d-8e4d-ac62357fb479}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{313fcf91-a6db-4585-a23e-49bbeef4784d}*SharedItemsImports = 4
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{313fcf91-a6db-4585-a23e-49bbeef4784d}*SharedItemsImports = 4
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{313fcf91-a6db-4585-a23e-49bbeef4784d}*SharedItemsImports = 4
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{3c272635-c7d1-444c-86c2-cb95e367d13d}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{3c272635-c7d1-444c-86c2-cb95e367d13d}*SharedItemsImports = 5
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{3c272635-c7d1-444c-86c2-cb95e367d13d}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
-		SamplesApp\Benchmarks.Shared\Benchmarks.Shared.projitems*{6c25beb3-e332-48d3-b4de-20a0b71935cd}*SharedItemsImports = 4
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{6c25beb3-e332-48d3-b4de-20a0b71935cd}*SharedItemsImports = 4
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{6c25beb3-e332-48d3-b4de-20a0b71935cd}*SharedItemsImports = 4
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{6c25beb3-e332-48d3-b4de-20a0b71935cd}*SharedItemsImports = 4
-		SamplesApp\Benchmarks.Shared\Benchmarks.Shared.projitems*{b71ae380-558c-4d6c-81d8-9c043b50262c}*SharedItemsImports = 4
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{b71ae380-558c-4d6c-81d8-9c043b50262c}*SharedItemsImports = 4
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{b71ae380-558c-4d6c-81d8-9c043b50262c}*SharedItemsImports = 4
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{b71ae380-558c-4d6c-81d8-9c043b50262c}*SharedItemsImports = 4
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{beb0ab3a-16a7-49cf-ad5e-f4a53b985afe}*SharedItemsImports = 13
-		SamplesApp\Benchmarks.Shared\Benchmarks.Shared.projitems*{c8c4395c-602f-45ab-aed4-40a8a4ef0089}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{c8c4395c-602f-45ab-aed4-40a8a4ef0089}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{c8c4395c-602f-45ab-aed4-40a8a4ef0089}*SharedItemsImports = 5
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{c8c4395c-602f-45ab-aed4-40a8a4ef0089}*SharedItemsImports = 5
-		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{e3b940da-15a4-4104-b96b-6951d932fe0e}*SharedItemsImports = 4
-		SamplesApp\UITests.Shared\UITests.Shared.projitems*{e3b940da-15a4-4104-b96b-6951d932fe0e}*SharedItemsImports = 4
-		SamplesApp\Benchmarks.Shared\Benchmarks.Shared.projitems*{f4581f51-40d6-4035-8a1d-65cc6917d0a9}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
