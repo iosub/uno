@@ -18,7 +18,6 @@
       "SourceGenerators\\System.Xaml.Tests.MS\\System.Xaml.Tests.MS.csproj",
       "SourceGenerators\\System.Xaml.Tests\\Uno.Xaml.Tests.csproj",
       "SourceGenerators\\System.Xaml\\Uno.Xaml.csproj",
-      "SourceGenerators\\System.Xaml\\Uno.Xaml.net6.csproj",
       "SourceGenerators\\Uno.UI.SourceGenerators.Tests\\Uno.UI.SourceGenerators.Tests.csproj",
       "SourceGenerators\\Uno.UI.SourceGenerators\\Uno.UI.SourceGenerators.csproj",
       "SourceGenerators\\Uno.UI.Tasks\\Uno.UI.Tasks.csproj",
