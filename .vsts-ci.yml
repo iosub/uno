@@ -44,7 +44,7 @@ jobs:
   parameters:
     poolName: '$(windowsScaledPool)'
 
-- template: build/ci/.azure-devops-net6-win.yml
+- template: build/ci/.azure-devops-package-net6-win.yml
   parameters:
     poolName: '$(windowsScaledPool)'
 
