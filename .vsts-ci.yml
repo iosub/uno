@@ -48,6 +48,10 @@ jobs:
   parameters:
     poolName: '$(windowsScaledPool)'
 
+- template: build/ci/.azure-devops-package-net6-mac.yml
+  parameters:
+    poolName: '$(macOSVMImage)'
+
 - template: build/ci/.azure-devops-package.yml
   parameters:
     poolName: '$(windowsScaledPool)'
