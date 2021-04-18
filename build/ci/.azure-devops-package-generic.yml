@@ -2,8 +2,8 @@ parameters:
   poolName: ''
 
 jobs:
-- job: VS_Latest
-  displayName: 'NuGet Packages'
+- job: package_generic
+  displayName: 'Build Generic Binaries'
   timeoutInMinutes: 90
 
   pool: ${{ parameters.poolName }}
@@ -67,7 +67,7 @@ jobs:
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /r /m "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
+      msbuildArguments: /r /m /t:UpdateFileVersions "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
       clean: false
       restoreNugetPackages: false
       logProjectEvents: false
@@ -76,38 +76,21 @@ jobs:
   - task: CopyFiles@2
     condition: always()
     inputs:
-      SourceFolder: $(build.sourcesdirectory)/Build
-      Contents: '*.nupkg'
-      TargetFolder: $(build.artifactstagingdirectory)\vslatest
+      SourceFolder: $(build.sourcesdirectory)
+      Contents: |
+        **/bin/**/*.dll
+        **/bin/**/*.pdb
+        **/bin/**/*.xml
+      TargetFolder: $(build.artifactstagingdirectory)\bin-$(XAML_FLAVOR_BUILD)
       CleanTargetFolder: false
       OverWrite: false
       flattenFolders: false
-
-  - task: PowerShell@2
-    displayName: Authenticode Sign Packages
-    inputs:
-      filePath: build/Sign-Package.ps1
-    env:
-      SignClientUser: $(SignClientUser)
-      SignClientSecret: $(SignClientSecret)
-      SignPackageName: "Uno Platform"
-      SignPackageDescription: "The Uno Platform"
-      ArtifactDirectory: $(build.artifactstagingdirectory)\vslatest
-    condition: and(succeeded(), not(eq(variables['build.reason'], 'PullRequest')), not(eq(variables['SignClientSecret'], '')), not(eq(variables['SignClientUser'], '')))
 
   - task: PublishBuildArtifacts@1
     condition: always()
     inputs:
       PathtoPublish: $(build.artifactstagingdirectory)
-      ArtifactName: NugetPackages
-      ArtifactType: Container
-
-  - task: PublishBuildArtifacts@1
-    displayName: Publish Skia Artifacts
-    condition: always()
-    inputs:
-      PathtoPublish: $(build.sourcesdirectory)\src\SamplesApp\SamplesApp.Skia.Gtk\bin\Release\netcoreapp3.1
-      ArtifactName: uno-skia-artifacts
+      ArtifactName: NugetPackages-Artifacts
       ArtifactType: Container
   
   - task: PublishBuildArtifacts@1
@@ -117,14 +100,3 @@ jobs:
       PathtoPublish: $(build.sourcesdirectory)\src\SamplesApp\SamplesApp.Skia.Tizen\bin\Release\tizen50
       ArtifactName: uno-tizen-artifacts
       ArtifactType: Container
-
-  # Publish PR packages to local feed to enable canary testing from PR artifacts
-  # Temporarily disabled for quota considerations
-  #- task: NuGetCommand@2
-  #  condition: and(eq(variables['System.PullRequest.IsFork'], 'False'), eq(variables['Build.Reason'], 'PullRequest'))
-  #  inputs:
-  #    command: 'push'
-  #    packagesToPush: '$(build.artifactstagingdirectory)/vslatest/**/*.nupkg'
-  #    nuGetFeedType: 'internal'
-  #    publishVstsFeed: '1dd81cbd-cb35-41de-a570-b0df3571a196/a70dae92-4e3d-4540-bf93-9b22ec98d19d'
-  #    allowPackageConflicts: true
