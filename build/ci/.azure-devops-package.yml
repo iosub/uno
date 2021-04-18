@@ -16,9 +16,11 @@ jobs:
     matrix:
       UWP:
         UNO_UWP_BUILD: true
+        XAML_FLAVOR_BUILD: UWP 
 
       WinUI:
         UNO_UWP_BUILD: false
+        XAML_FLAVOR_BUILD: WinUI 
 
   variables:
     CombinedConfiguration: Release|Any CPU
@@ -65,13 +67,24 @@ jobs:
     condition: and(succeeded(), eq(variables['UNO_UWP_BUILD'], 'false'))
     displayName: Convert source tree to WinUI 3 structure
 
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      artifactName: NugetPackages-Artifacts
+
+  - task: ExtractFiles@1
+    displayName: Restore binaries structure
+    inputs:
+      archiveFilePatterns: '$(System.ArtifactsDirectory)/NugetPackages-Artifacts/windows-bin-$(XAML_FLAVOR_BUILD).zip' 
+      destinationFolder: $(build.sourcesdirectory)
+      overwriteExistingFiles: true
+  
   - task: MSBuild@1
     inputs:
       solution: Build/Uno.UI.Build.csproj
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /r /m "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
+      msbuildArguments: /r /m /t:GeneratePackages "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer)-generate-packages.binlog
       clean: false
       restoreNugetPackages: false
       logProjectEvents: false
