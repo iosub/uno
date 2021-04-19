@@ -36,6 +36,10 @@ jobs:
     macOS.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.macOS.Bundle.11.1.100-preview.3.1379.pkg
     MacCatalyst.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.MacCatalyst.Bundle.14.3.100-preview.3.471.pkg
 
+    LogDirectory: $(Build.ArtifactStagingDirectory)/logs
+    DotNet.Root: /usr/local/share/dotnet/
+    DotNet.Tools: ~/.dotnet/tools
+
   steps:
   - checkout: self
     clean: true

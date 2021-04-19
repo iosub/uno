@@ -232,6 +232,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uno.UI.MSAL.net6", "AddIns\Uno.UI.MSAL\Uno.UI.MSAL.net6.csproj", "{17BB7190-F406-4A26-9C44-4F494B24CF83}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{04b1b5eb-d42e-47de-ada0-eb863e5574fd}*SharedItemsImports = 13
+		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{3c272635-c7d1-444c-86c2-cb95e367d13d}*SharedItemsImports = 5
+		SamplesApp\SamplesApp.UnitTests.Shared\SamplesApp.UnitTests.Shared.projitems*{3c272635-c7d1-444c-86c2-cb95e367d13d}*SharedItemsImports = 5
+		SamplesApp\UITests.Shared\UITests.Shared.projitems*{3c272635-c7d1-444c-86c2-cb95e367d13d}*SharedItemsImports = 5
+		SamplesApp\SamplesApp.Shared\SamplesApp.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
+		SamplesApp\UITests.Shared\UITests.Shared.projitems*{beb0ab3a-16a7-49cf-ad5e-f4a53b985afe}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
