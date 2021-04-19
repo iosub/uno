@@ -391,6 +391,7 @@ namespace Windows.UI.Xaml.Controls
 
 		internal void SetIsAnimatedScrolling() => _isInAnimatedScroll = true;
 
+#if !MACCATALYST
 		public override void Scrolled(UIScrollView scrollView)
 		{
 			InvokeOnScroll();
@@ -423,6 +424,7 @@ namespace Windows.UI.Xaml.Controls
 		{
 			OnAnimatedScrollEnded();
 		}
+#endif
 
 		public override void DidZoom(UIScrollView scrollView)
 		{
@@ -447,6 +449,7 @@ namespace Windows.UI.Xaml.Controls
 			Owner.XamlParent?.ScrollViewer?.OnScrollInternal(clampedOffset.X, clampedOffset.Y, isIntermediate: _isInAnimatedScroll);
 		}
 
+#if !MACCATALYST
 		public override void WillEndDragging(UIScrollView scrollView, CGPoint velocity, ref CGPoint targetContentOffset)
 		{
 			// If snap points are enabled, override the target offset with the calculated snap point.
@@ -456,6 +459,7 @@ namespace Windows.UI.Xaml.Controls
 				targetContentOffset = snapTo.Value;
 			}
 		}
+#endif
 
 		#endregion
 
