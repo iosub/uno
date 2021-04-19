@@ -189,6 +189,36 @@
 	<file src="..\src\Uno.UI.Toolkit\bin\Release\xamarinios10\Uno.UI.Toolkit.dll" target="lib\xamarinios10" />
 	<file src="..\src\Uno.UI.Toolkit\bin\Release\xamarinios10\Uno.UI.Toolkit.pdb" target="lib\xamarinios10" />
 
+	<!-- net6.0-ios -->
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.dll" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.pdb" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.Foundation.dll" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.Foundation.pdb" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.UI.dll" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.UI.pdb" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.Xaml.dll" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-ios\Uno.Xaml.pdb" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI\bin\Uno.UI.net6\Release\net6.0-ios\*.xml" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI.FluentTheme\bin\Uno.UI.net6\Release\net6.0-ios\Uno.UI.FluentTheme.dll" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI.FluentTheme\bin\Uno.UI.net6\Release\net6.0-ios\Uno.UI.FluentTheme.pdb" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI.Toolkit\bin\Uno.UI.net6\Release\net6.0-ios\Uno.UI.Toolkit.dll" target="lib\net6.0-ios" />
+	<file src="..\src\Uno.UI.Toolkit\bin\Uno.UI.net6\Release\net6.0-ios\Uno.UI.Toolkit.pdb" target="lib\net6.0-ios" />
+
+	<!-- net6.0-android -->
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.dll" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.pdb" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.Foundation.dll" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.Foundation.pdb" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.UI.dll" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.UI.pdb" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.Xaml.dll" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\Bin\Uno.UI.net6\Release\net6.0-android\Uno.Xaml.pdb" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI\bin\Uno.UI.net6\Release\net6.0-android\*.xml" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI.FluentTheme\bin\Uno.UI.net6\Release\net6.0-android\Uno.UI.FluentTheme.dll" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI.FluentTheme\bin\Uno.UI.net6\Release\net6.0-android\Uno.UI.FluentTheme.pdb" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI.Toolkit\bin\Uno.UI.net6\Release\net6.0-android\Uno.UI.Toolkit.dll" target="lib\net6.0-android" />
+	<file src="..\src\Uno.UI.Toolkit\bin\Uno.UI.net6\Release\net6.0-android\Uno.UI.Toolkit.pdb" target="lib\net6.0-android" />
+
 	<!-- macOS -->
 	<file src="..\src\Uno.UI\Bin\Release\xamarinmac20\Uno.dll" target="lib\xamarinmac20" />
 	<file src="..\src\Uno.UI\Bin\Release\xamarinmac20\Uno.pdb" target="lib\xamarinmac20" />
