@@ -83,6 +83,7 @@ jobs:
         **/bin/**/*.dll
         **/bin/**/*.pdb
         **/bin/**/*.xml
+        **/bin/**/*.vsix
       TargetFolder: $(build.sourcesdirectory)\build-artifacts\bin-$(XAML_FLAVOR_BUILD)
       CleanTargetFolder: false
       OverWrite: false
@@ -93,7 +94,7 @@ jobs:
       rootFolderOrFile: $(build.sourcesdirectory)\build-artifacts\bin-$(XAML_FLAVOR_BUILD)
       includeRootFolder: false
       archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/windows-bin-$(XAML_FLAVOR_BUILD).zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/windows-generic-bin-$(XAML_FLAVOR_BUILD).zip'
 
   - task: PublishBuildArtifacts@1
     condition: always()

@@ -75,7 +75,7 @@ jobs:
   - task: ExtractFiles@1
     displayName: Restore binaries structure
     inputs:
-      archiveFilePatterns: '$(System.ArtifactsDirectory)/NugetPackages-Artifacts/windows-bin-$(XAML_FLAVOR_BUILD).zip' 
+      archiveFilePatterns: '$(System.ArtifactsDirectory)/NugetPackages-Artifacts/*-bin-$(XAML_FLAVOR_BUILD).zip' 
       destinationFolder: $(build.sourcesdirectory)
   
   - task: MSBuild@1

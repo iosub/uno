@@ -103,10 +103,17 @@ jobs:
         **/bin/**/*.dll
         **/bin/**/*.pdb
         **/bin/**/*.xml
-      TargetFolder: $(build.artifactstagingdirectory)\bin-$(XAML_FLAVOR_BUILD)
+      TargetFolder: $(build.sourcesdirectory)\build-artifacts\bin-$(XAML_FLAVOR_BUILD)
       CleanTargetFolder: false
       OverWrite: false
       flattenFolders: false
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: $(build.sourcesdirectory)\build-artifacts\bin-$(XAML_FLAVOR_BUILD)
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/windows-net6-bin-$(XAML_FLAVOR_BUILD).zip'
 
   - task: PublishBuildArtifacts@1
     condition: always()
