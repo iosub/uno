@@ -77,7 +77,6 @@ jobs:
     inputs:
       archiveFilePatterns: '$(System.ArtifactsDirectory)/NugetPackages-Artifacts/windows-bin-$(XAML_FLAVOR_BUILD).zip' 
       destinationFolder: $(build.sourcesdirectory)
-      overwriteExistingFiles: true
   
   - task: MSBuild@1
     inputs:
