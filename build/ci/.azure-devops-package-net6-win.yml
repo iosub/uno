@@ -14,9 +14,9 @@ jobs:
         UNO_UWP_BUILD: true
         XAML_FLAVOR_BUILD: UWP 
 
-      # WinUI:
-      #   UNO_UWP_BUILD: false
-      #   XAML_FLAVOR_BUILD: WinUI 
+      WinUI:
+        UNO_UWP_BUILD: false
+        XAML_FLAVOR_BUILD: WinUI 
 
   variables:
     CombinedConfiguration: Release|Any CPU
@@ -84,7 +84,7 @@ jobs:
       msbuildLocationMethod: version
       msbuildVersion: latest
       msbuildArchitecture: x86
-      msbuildArguments: /r /m /t:UpdateFileVersions "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
+      msbuildArguments: /r /m /t:BuildNet6 "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
       clean: false
       restoreNugetPackages: false
       logProjectEvents: false
