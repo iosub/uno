@@ -3,7 +3,7 @@ parameters:
 
 jobs:
 - job: net6_mac_build
-  displayName: 'Build .NET 6 Build'
+  displayName: 'Build .NET 6 Build (macOS)'
   timeoutInMinutes: 90
 
   pool:
