@@ -77,7 +77,7 @@ jobs:
     displayName: Restore binaries structure
     inputs:
       archiveFilePatterns: '$(Agent.WorkFolder)/NugetPackages-Artifacts/*-bin-$(XAML_FLAVOR_BUILD).zip' 
-      destinationFolder: $(Agent.WorkFolder)/NugetPackages-Artifacts-extract $(build.sourcesdirectory)
+      destinationFolder: $(Agent.WorkFolder)/NugetPackages-Artifacts-extract
 
   - powershell: |
         cp -r $(Agent.WorkFolder)/NugetPackages-Artifacts-extract 
