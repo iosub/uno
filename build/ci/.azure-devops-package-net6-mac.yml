@@ -66,28 +66,28 @@ jobs:
   - bash: sudo xcode-select -s /Applications/Xcode_12.4.app
     displayName: select Xcode 12.4
 
-  - powershell: |
-      cd $(build.sourcesdirectory)\src\Uno.WinUIRevert
-      dotnet run "$(build.sourcesdirectory)"
-
-    condition: and(succeeded(), eq(variables['UNO_UWP_BUILD'], 'false'))
-    displayName: Convert source tree to WinUI 3 structure
-
-  - powershell: |
-      cp $(build.sourcesdirectory)/src/global-net6.json $(build.sourcesdirectory)/src/global.json
-    displayName: Change active .NET SDK
-
-  - task: MSBuild@1
-    inputs:
-      solution: Build/Uno.UI.Build.csproj
-      msbuildLocationMethod: version
-      msbuildVersion: latest
-      msbuildArchitecture: x86
-      msbuildArguments: /r /m /t:UpdateFileVersions "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
-      clean: false
-      restoreNugetPackages: false
-      logProjectEvents: false
-      createLogFile: false
+  # - powershell: |
+  #     cd $(build.sourcesdirectory)\src\Uno.WinUIRevert
+  #     dotnet run "$(build.sourcesdirectory)"
+  # 
+  #   condition: and(succeeded(), eq(variables['UNO_UWP_BUILD'], 'false'))
+  #   displayName: Convert source tree to WinUI 3 structure
+  # 
+  # - powershell: |
+  #     cp $(build.sourcesdirectory)/src/global-net6.json $(build.sourcesdirectory)/src/global.json
+  #   displayName: Change active .NET SDK
+  # 
+  # - task: MSBuild@1
+  #   inputs:
+  #     solution: Build/Uno.UI.Build.csproj
+  #     msbuildLocationMethod: version
+  #     msbuildVersion: latest
+  #     msbuildArchitecture: x86
+  #     msbuildArguments: /r /m /t:UpdateFileVersions "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)\build-$(GitVersion.FullSemVer).binlog
+  #     clean: false
+  #     restoreNugetPackages: false
+  #     logProjectEvents: false
+  #     createLogFile: false
 
 
   # Todo enable catalyst build
