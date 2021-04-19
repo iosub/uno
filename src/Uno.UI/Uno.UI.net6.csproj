@@ -18,7 +18,7 @@
 		<DefineConstants>$(DefineConstants);IS_UNO</DefineConstants>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<BuildForLiveUnitTesting>false</BuildForLiveUnitTesting>
-		<NoWarn>$(NoWarn);NU1701;1572;1587;419;1574;1711;1734</NoWarn>
+		<NoWarn>$(NoWarn);NU1701;1572;1587;419;1574;1711;1734;CS0105</NoWarn>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 
 		<Nullable>disable</Nullable>
