@@ -4,7 +4,7 @@
 		<OutputType>Exe</OutputType>
 		<AssemblyName>SamplesApp</AssemblyName>
 		<!--<BuildingInsideUnoSourceGenerator>true</BuildingInsideUnoSourceGenerator>-->
-		<DefineConstants>XAMARIN;HAS_UNO</DefineConstants>
+		<DefineConstants>$(DefineConstants);XAMARIN;HAS_UNO</DefineConstants>
 		<IsUnoHead>true</IsUnoHead>
 	</PropertyGroup>
 	
