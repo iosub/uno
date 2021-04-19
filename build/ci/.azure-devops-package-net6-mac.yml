@@ -1,12 +1,13 @@
 parameters:
-  poolName: ''
+  vmImage: ''
 
 jobs:
 - job: net6_mac_build
   displayName: 'Build .NET 6 Build'
   timeoutInMinutes: 90
 
-  pool: ${{ parameters.poolName }}
+  pool:
+    vmImage: ${{ parameters.vmImage }}
 
   strategy:
     matrix:
