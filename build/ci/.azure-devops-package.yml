@@ -71,13 +71,19 @@ jobs:
   - task: DownloadBuildArtifacts@0
     inputs:
       artifactName: NugetPackages-Artifacts
+      downloadPath: '$(Agent.WorkFolder)' 
 
   - task: ExtractFiles@1
     displayName: Restore binaries structure
     inputs:
-      archiveFilePatterns: '$(System.ArtifactsDirectory)/NugetPackages-Artifacts/*-bin-$(XAML_FLAVOR_BUILD).zip' 
-      destinationFolder: $(build.sourcesdirectory)
-  
+      archiveFilePatterns: '$(Agent.WorkFolder)/NugetPackages-Artifacts/*-bin-$(XAML_FLAVOR_BUILD).zip' 
+      destinationFolder: $(Agent.WorkFolder)/NugetPackages-Artifacts-extract $(build.sourcesdirectory)
+
+  - powershell: |
+        cp -r $(Agent.WorkFolder)/NugetPackages-Artifacts-extract 
+
+    displayName: Apply previous steps binaries to output folders
+
   - task: MSBuild@1
     inputs:
       solution: Build/Uno.UI.Build.csproj
