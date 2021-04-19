@@ -66,6 +66,14 @@ jobs:
   - bash: sudo xcode-select -s /Applications/Xcode_12.4.app
     displayName: select Xcode 12.4
 
+  - bash: |
+      set -x
+      mkdir -p ~/Library/Preferences/Xamarin
+      rm -f ~/Library/Preferences/Xamarin/Settings.plist
+      /usr/libexec/PlistBuddy -c "add :AppleSdkRoot string $(dirname $(dirname $(xcode-select -p)))" ~/Library/Preferences/Xamarin/Settings.plist || true
+      cat ~/Library/Preferences/Xamarin/Settings.plist || true
+    displayName: configure vsmac xcode
+
   - powershell: |
       cd $(build.sourcesdirectory)/src/Uno.WinUIRevert
       dotnet run "$(build.sourcesdirectory)"
