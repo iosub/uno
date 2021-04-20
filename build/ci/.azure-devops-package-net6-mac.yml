@@ -7,7 +7,7 @@ jobs:
   timeoutInMinutes: 90
 
   pool:
-    vmImage: ${{ parameters.vmImage }}
+    vmImage: macOS-latest
 
   strategy:
     matrix:
