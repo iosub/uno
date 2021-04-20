@@ -66,7 +66,7 @@ jobs:
 
   - bash: |
       echo Linking /usr/local/share/dotnet/packs to $DOTNET_ROOT/packs
-      ln -s /usr/local/share/dotnet/packs $DOTNET_ROOT/packs
+      ln -s /usr/local/share/dotnet/packs/* $DOTNET_ROOT/packs
       ls -la $DOTNET_ROOT/packs
     displayName: Install .NET workloads
 
