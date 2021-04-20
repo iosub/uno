@@ -62,6 +62,10 @@ jobs:
       boots $(iOS.Pkg)
       boots $(macOS.Pkg)
       boots $(MacCatalyst.Pkg)
+    displayName: Install .NET workloads
+
+  - bash: |
+      echo Linking /usr/local/share/dotnet/packs to $DOTNET_ROOT/packs
       ln -s /usr/local/share/dotnet/packs $DOTNET_ROOT/packs
     displayName: Install .NET workloads
 
