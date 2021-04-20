@@ -7,9 +7,9 @@ jobs:
   timeoutInMinutes: 90
 
   dependsOn:
+  - generic_win_build
   - net6_win_build
   # - net6_mac_build
-  - SamplesApp_UITests_Build
 
   pool: ${{ parameters.poolName }}
 

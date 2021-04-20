@@ -2,7 +2,7 @@ parameters:
   poolName: ''
 
 jobs:
-- job: package_generic
+- job: generic_win_build
   displayName: 'Build Generic Binaries'
   timeoutInMinutes: 90
 
