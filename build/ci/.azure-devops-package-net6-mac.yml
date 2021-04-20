@@ -68,8 +68,9 @@ jobs:
       echo Linking /usr/local/share/dotnet/packs to $DOTNET_ROOT/packs
       ln -s /usr/local/share/dotnet/packs/* $DOTNET_ROOT/packs
 
-      mkdir -p $DOTNET_ROOT/sdk-manifests/6.0.100
-      ln -s /usr/local/share/dotnet/sdk-manifests/6.0.100/* $DOTNET_ROOT/sdk-manifests/6.0.100
+      # mkdir -p $DOTNET_ROOT/sdk-manifests/6.0.100
+      # ln -s /usr/local/share/dotnet/sdk-manifests/6.0.100/* $DOTNET_ROOT/sdk-manifests/6.0.100
+      ls -lar $DOTNET_ROOT/sdk-manifests/6.0.100
     displayName: Adjust .NET workloads paths
 
   - bash: sudo xcode-select -s /Applications/Xcode_12.4.app
