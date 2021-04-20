@@ -7,6 +7,7 @@
 		<TargetFrameworksCI Condition="$([MSBuild]::IsOSPlatform('OSX'))">>$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworksCI>
 
 		<DisableBuildTargetFramework>true</DisableBuildTargetFramework>
+		<AssemblyName>Uno.Xaml</AssemblyName>
 
 		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
 		<AndroidResgenFile>obj\$(TargetFramework)\Resources\Resource.Designer.cs</AndroidResgenFile>
