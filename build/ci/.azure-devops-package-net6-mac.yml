@@ -85,23 +85,16 @@ jobs:
   - powershell: |
       cp $(build.sourcesdirectory)/src/global-net6.json $(build.sourcesdirectory)/src/global.json
     displayName: Change active .NET SDK
-  
-  - task: MSBuild@1
-    inputs:
-      solution: Build/Uno.UI.Build.csproj
-      msbuildLocationMethod: version
-      msbuildVersion: latest
-      msbuildArchitecture: x86
-      msbuildArguments: /r /m /t:BuildNet6 "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)/build-$(GitVersion.FullSemVer).binlog
-      clean: false
-      restoreNugetPackages: false
-      logProjectEvents: false
-      createLogFile: false
+
+  - powershell: |
+      cd build
+      & dotnet Build/Uno.UI.Build.csproj /t:BuildNet6 "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)/build-$(GitVersion.FullSemVer).binlog
+    displayName: Setup versions
+    errorActionPreference: stop
 
   - powershell: |
       cd src
-      & dotnet Uno.UI-net6-only.slnf -c Release /p:UnoTargetFrameworkOverride=net6.0-maccatalyst "/p:PackageOutputPath=$(build.artifactstagingdirectory)/nuget" /bl:$(build.artifactstagingdirectory)/macos-build-$(GitVersion.FullSemVer)-net6-$(UNO_UWP_BUILD).binlog
-      & dotnet build net6-samples.sln -c Release -bl:$(LogDirectory)\Release.binlog
+      & dotnet build Uno.UI-net6-only.slnf -c Release /p:UnoTargetFrameworkOverride=net6.0-maccatalyst "/p:PackageOutputPath=$(build.artifactstagingdirectory)/nuget" /bl:$(build.artifactstagingdirectory)/macos-build-$(GitVersion.FullSemVer)-net6-$(UNO_UWP_BUILD).binlog
     displayName: Build
     errorActionPreference: stop
 
