@@ -88,7 +88,7 @@ jobs:
 
   - powershell: |
       cd build
-      dotnet Build/Uno.UI.Build.csproj /t:BuildNet6 "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)/build-$(GitVersion.FullSemVer).binlog
+      dotnet build Build/Uno.UI.Build.csproj /t:BuildNet6 "/p:CombinedConfiguration=$(CombinedConfiguration)" /detailedsummary /bl:$(build.artifactstagingdirectory)/build-$(GitVersion.FullSemVer).binlog
     displayName: Setup versions
     errorActionPreference: stop
 
