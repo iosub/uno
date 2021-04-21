@@ -48,7 +48,6 @@ jobs:
     parameters:
       nugetPackages: $(NUGET_PACKAGES)
 
-
   - task: UseDotNet@2
     displayName: 'Use .Net Core runtime 5.0.103'
     inputs:
@@ -64,6 +63,8 @@ jobs:
       installationPath: $(DOTNET_ROOT)
 
   - template: templates/gitversion.yml
+    parameters:
+      dotnetInstallationPath: $(DOTNET_ROOT)
 
   - bash: |
       set -x
@@ -103,7 +104,7 @@ jobs:
   
   - powershell: |
       cp $(build.sourcesdirectory)/src/global-net6.json $(build.sourcesdirectory)/src/global.json
-    displayName: Change active .NET SDK
+    displayName: Change active .NET SDK for solution
 
   - powershell: |
       cd build
