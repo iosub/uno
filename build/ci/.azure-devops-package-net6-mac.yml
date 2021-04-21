@@ -37,7 +37,7 @@ jobs:
     MacCatalyst.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.MacCatalyst.Bundle.14.3.100-preview.3.471.pkg
 
     LogDirectory: $(Build.ArtifactStagingDirectory)/logs
-    DotNet.Root: /usr/local/share/dotnet/
+    DOTNET_ROOT: /usr/local/share/dotnet/
     DotNet.Tools: ~/.dotnet/tools
 
   steps:
@@ -54,24 +54,26 @@ jobs:
     inputs:
       packageType: sdk
       version: 5.0.103
-      installationPath: $(DotNet.Root)
+      installationPath: $(DOTNET_ROOT)
 
   - task: UseDotNet@2
     displayName: 'Use .Net Core runtime 3.1.406'
     inputs:
       packageType: sdk
       version: 3.1.406
-      installationPath: $(DotNet.Root)
+      installationPath: $(DOTNET_ROOT)
 
   - template: templates/gitversion.yml
 
-  - bash: >
-      export PATH="$(DotNet.Root):$(DotNet.Tools):$PATH" &&
-      curl -L https://raw.githubusercontent.com/dotnet/install-scripts/7a9d5dcab92cf131fc2d8977052f8c2c2d540e22/src/dotnet-install.sh > dotnet-install.sh &&
-      sh dotnet-install.sh --version $(DotNetVersion) --install-dir $DOTNET_ROOT --verbose &&
-      dotnet --list-sdks &&
+  - bash: |
+      set -x
+      export PATH="$(DOTNET_ROOT):$(DotNet.Tools):$PATH"
       echo "##vso[task.setvariable variable=PATH]$PATH"
-    displayName: install .NET $(DotNetVersion)
+      curl -L https://raw.githubusercontent.com/dotnet/install-scripts/7a9d5dcab92cf131fc2d8977052f8c2c2d540e22/src/dotnet-install.sh > dotnet-install.sh
+      sh dotnet-install.sh --version $(DotNetVersion) --install-dir $DOTNET_ROOT --verbose
+      dotnet --list-sdks
+      sudo touch $DOTNET_ROOT/sdk/6.0.100-preview.3.21202.5/EnableWorkloadResolver.sentinel
+    displayName: Install .NET $(DotNetVersion)
 
   - bash: |
       dotnet tool install --global boots
@@ -79,7 +81,6 @@ jobs:
       boots $(iOS.Pkg)
       boots $(macOS.Pkg)
       boots $(MacCatalyst.Pkg)
-      sudo touch $DOTNET_ROOT/sdk/6.0.100-preview.3.21202.5/EnableWorkloadResolver.sentinel
     displayName: Install .NET workloads
 
   - bash: sudo xcode-select -s /Applications/Xcode_12.4.app
