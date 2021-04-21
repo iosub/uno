@@ -65,6 +65,11 @@ jobs:
     displayName: install .NET workloads
     errorActionPreference: stop
 
+  - powershell: |
+      dotnet tool install -g Redth.Net.Maui.Check
+      maui-check --dev --ci --fix --non-interactive
+    displayName: Adjusting dotnet installation
+
   - template: templates/install-windows-sdk.yml
 
   - powershell: |
