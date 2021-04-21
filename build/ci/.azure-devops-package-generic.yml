@@ -83,6 +83,8 @@ jobs:
         **/bin/**/*.dll
         **/bin/**/*.pdb
         **/bin/**/*.xml
+        **/bin/**/*.xbf
+        **/bin/**/*.xaml
         **/bin/**/*.vsix
       TargetFolder: $(build.sourcesdirectory)\build-artifacts\bin-$(XAML_FLAVOR_BUILD)
       CleanTargetFolder: false
