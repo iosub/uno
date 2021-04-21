@@ -79,7 +79,7 @@ jobs:
       boots $(iOS.Pkg)
       boots $(macOS.Pkg)
       boots $(MacCatalyst.Pkg)
-      sudo touch $DOTNET_ROOTsdk/6.0.100-preview.3.21202.5/EnableWorkloadResolver.sentinel
+      sudo touch $DOTNET_ROOT/sdk/6.0.100-preview.3.21202.5/EnableWorkloadResolver.sentinel
     displayName: Install .NET workloads
 
   - bash: sudo xcode-select -s /Applications/Xcode_12.4.app
