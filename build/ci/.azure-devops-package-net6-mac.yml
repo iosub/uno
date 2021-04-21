@@ -35,6 +35,7 @@ jobs:
     iOS.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.iOS.Bundle.14.4.100-preview.3.1326.pkg
     macOS.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.macOS.Bundle.11.1.100-preview.3.1379.pkg
     MacCatalyst.Pkg: https://bosstoragemirror.azureedge.net/wrench/6.0.1xx-preview3/f68d4d9c2a342daf9eaad364ccbe252e009d3901/4623693/package/notarized/Microsoft.MacCatalyst.Bundle.14.3.100-preview.3.471.pkg
+    dotnetMac.Pkg: https://download.visualstudio.microsoft.com/download/pr/fc5fdd1f-fb4c-4b88-a507-158204030320/98497ef248883404ff5b0604dda944fb/dotnet-sdk-6.0.100-preview.3.21202.5-osx-x64.pkg
 
     LogDirectory: $(Build.ArtifactStagingDirectory)/logs
     DOTNET_ROOT: /usr/local/share/dotnet/
@@ -66,18 +67,19 @@ jobs:
     parameters:
       dotnetInstallationPath: $(DOTNET_ROOT)
 
-  - bash: |
-      set -x
-      export PATH="$(DOTNET_ROOT):$(DotNet.Tools):$PATH"
-      echo "##vso[task.setvariable variable=PATH]$PATH"
-      curl -L https://raw.githubusercontent.com/dotnet/install-scripts/7a9d5dcab92cf131fc2d8977052f8c2c2d540e22/src/dotnet-install.sh > dotnet-install.sh
-      sh dotnet-install.sh --version $(DotNetVersion) --install-dir $DOTNET_ROOT --verbose
-      dotnet --list-sdks
-      sudo touch $DOTNET_ROOT/sdk/6.0.100-preview.3.21202.5/EnableWorkloadResolver.sentinel
-    displayName: Install .NET $(DotNetVersion)
+  #- bash: |
+  #    set -x
+  #    export PATH="$(DOTNET_ROOT):$(DotNet.Tools):$PATH"
+  #    echo "##vso[task.setvariable variable=PATH]$PATH"
+  #    curl -L https://raw.githubusercontent.com/dotnet/install-scripts/7a9d5dcab92cf131fc2d8977052f8c2c2d540e22/src/dotnet-install.sh > dotnet-install.sh
+  #    sh dotnet-install.sh --version $(DotNetVersion) --install-dir $DOTNET_ROOT --verbose
+  #    dotnet --list-sdks
+  #    sudo touch $DOTNET_ROOT/sdk/6.0.100-preview.3.21202.5/EnableWorkloadResolver.sentinel
+  #  displayName: Install .NET $(DotNetVersion)
 
   - bash: |
       dotnet tool install --global boots
+      boots $(dotnetMac.Pkg)
       boots $(Android.Pkg)
       boots $(iOS.Pkg)
       boots $(macOS.Pkg)
