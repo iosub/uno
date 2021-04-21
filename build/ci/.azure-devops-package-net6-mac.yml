@@ -88,7 +88,7 @@ jobs:
 
   - bash: |
       dotnet tool install -g Redth.Net.Maui.Check
-      maui-check --dev --ci --fix --non-interactive
+      maui-check --dev --ci --fix --non-interactive || true
     displayName: Adjusting dotnet installation
 
   - bash: sudo xcode-select -s /Applications/Xcode_12.4.app
