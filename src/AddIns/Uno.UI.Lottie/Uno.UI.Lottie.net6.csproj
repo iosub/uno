@@ -4,8 +4,8 @@
 		<TargetFrameworks>net6.0-android;net6.0-ios</TargetFrameworks>
 		<TargetFrameworksCI>net6.0-android;net6.0-ios</TargetFrameworksCI>
 
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('OSX'))">$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworksCI Condition="$([MSBuild]::IsOSPlatform('OSX'))">>$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworksCI>
+		<TargetFrameworks>$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworksCI>$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworksCI>
 	</PropertyGroup>
 
 	<PropertyGroup>
