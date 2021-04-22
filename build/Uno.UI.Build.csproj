@@ -62,6 +62,8 @@
 		<CallTarget Targets="UpdateFileVersions;UpdateTasksSHA;PrepareNuGetPackage" Condition="$(_isWindows)" />
 
 		<CallTarget Targets="RunAPISyncTool" Condition="'$(UNO_UWP_BUILD)'=='false'" />
+
+		<CallTarget Targets="BuildCINet6" Condition="'$(Configuration)'=='Release' and $(_isWindows)" />
 	</Target>
 
 	<Target Name="GeneratePackages" AfterTargets="Build" Condition="'$(BuildingInsideVisualStudio)'==''">
@@ -150,8 +152,18 @@
 	<Target Name="BuildCI">
 		<Exec Command="npm i" WorkingDirectory="..\src\SamplesApp\SamplesApp.Wasm.UITests" />
 
-		<MSBuild Properties="Configuration=Release_NoSamples;InformationalVersion=$(GITVERSION_InformationalVersion);CI_Build=true;_IsCIBuild=true;PackageOutputPath=$(BUILD_ARTIFACTSTAGINGDIRECTORY)\vslatest;PackageVersion=$(GITVERSION_SemVer)"
+		<MSBuild Properties="Configuration=Release_NoSamples;InformationalVersion=$(GITVERSION_InformationalVersion);CI_Build=true;_IsCIBuild=true;PackageOutputPath=$(BUILD_ARTIFACTSTAGINGDIRECTORY)\vslatest-generic;PackageVersion=$(GITVERSION_SemVer)"
              Projects="..\src\Uno.UI-packages-no-net6.slnf"
+             Targets="Restore;Build"
+             RebaseOutputs="false"
+             BuildInParallel="true" />
+
+	</Target>
+
+	<Target Name="BuildCINet6">
+
+		<MSBuild Properties="Configuration=Release;InformationalVersion=$(GITVERSION_InformationalVersion);CI_Build=true;_IsCIBuild=true;PackageOutputPath=$(BUILD_ARTIFACTSTAGINGDIRECTORY)\vslatest-net6;PackageVersion=$(GITVERSION_SemVer)"
+             Projects="..\src\Uno.UI-net6-only.slnf"
              Targets="Restore;Build"
              RebaseOutputs="false"
              BuildInParallel="true" />

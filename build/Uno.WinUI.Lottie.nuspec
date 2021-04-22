@@ -75,6 +75,10 @@
 	<file src="..\src\AddIns\Uno.UI.Lottie\bin\Release\xamarinmac20\Uno.UI.Lottie.dll" target="lib\xamarinmac20" />
 	<file src="..\src\AddIns\Uno.UI.Lottie\bin\Release\MonoAndroid11.0\Uno.UI.Lottie.dll" target="lib\MonoAndroid11.0" />
 	<file src="..\src\AddIns\Uno.UI.Lottie\bin\Release\MonoAndroid10.0\Uno.UI.Lottie.dll" target="lib\MonoAndroid10.0" />
+	
+	<file src="..\src\AddIns\Uno.UI.Lottie\bin\Uno.UI.Lottie.net6\Release\net6.0-android\Uno.UI.Lottie.dll" target="lib\net6.0-android" />
+	<file src="..\src\AddIns\Uno.UI.Lottie\bin\Uno.UI.Lottie.net6\Release\net6.0-ios\Uno.UI.Lottie.dll" target="lib\net6.0-ios" />
+	<file src="..\src\AddIns\Uno.UI.Lottie\bin\Uno.UI.Lottie.net6\Release\net6.0-maccatalyst\Uno.UI.Lottie.dll" target="lib\net6.0-maccatalyst" />
 
 	<!-- Build targets -->
 	<file src="..\src\AddIns\Uno.UI.Lottie\buildTransitive\*" target="buildTransitive" />
