@@ -424,7 +424,6 @@ namespace Windows.UI.Xaml.Controls
 		{
 			OnAnimatedScrollEnded();
 		}
-#endif
 
 		public override void DidZoom(UIScrollView scrollView)
 		{
@@ -432,6 +431,7 @@ namespace Windows.UI.Xaml.Controls
 			// obvious what it would be in the case of a list).
 			Owner.XamlParent?.ScrollViewer?.OnZoomInternal((float)Owner.ZoomScale);
 		}
+#endif
 
 		private void OnAnimatedScrollEnded()
 		{
