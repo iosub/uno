@@ -62,8 +62,6 @@
 		<CallTarget Targets="UpdateFileVersions;UpdateTasksSHA;PrepareNuGetPackage" Condition="$(_isWindows)" />
 
 		<CallTarget Targets="RunAPISyncTool" Condition="'$(UNO_UWP_BUILD)'=='false'" />
-
-		<CallTarget Targets="BuildCINet6" Condition="'$(Configuration)'=='Release' and $(_isWindows)" />
 	</Target>
 
 	<Target Name="GeneratePackages" AfterTargets="Build" Condition="'$(BuildingInsideVisualStudio)'==''">
