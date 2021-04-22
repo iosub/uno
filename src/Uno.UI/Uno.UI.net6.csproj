@@ -5,7 +5,7 @@
 		<TargetFrameworksCI>net6.0-android;net6.0-ios</TargetFrameworksCI>
 
 		<TargetFrameworks>$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworksCI Condition="$([MSBuild]::IsOSPlatform('OSX'))">&gt;$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworksCI>
+		<TargetFrameworksCI>$(TargetFrameworks);net6.0-maccatalyst</TargetFrameworksCI>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(UnoTargetFrameworkOverride)'!=''">
