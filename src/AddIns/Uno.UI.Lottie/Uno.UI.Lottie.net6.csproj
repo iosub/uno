@@ -13,6 +13,7 @@
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<Deterministic>true</Deterministic>
 		<Nullable>enable</Nullable>
+		<AssemblyName>Uno.UI.Lottie</AssemblyName>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(UnoTargetFrameworkOverride)'!=''">

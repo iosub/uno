@@ -29,7 +29,15 @@
 	  </group>
 
 	  <!-- net6.0-ios -->
-	  <group targetFramework="xamarinios10">
+	  <group targetFramework="net6.0-ios">
+		<dependency id="Uno.SourceGenerationTasks" version="3.0.0" />
+		<dependency id="Uno.Core" version="2.3.0" />
+		<dependency id="Uno.Core.Build" version="2.3.0" />
+		<dependency id="Uno.Diagnostics.Eventing" version="1.0.4" />
+	  </group>
+
+	  <!-- net6.0-maccatalyst -->
+	  <group targetFramework="net6.0-maccatalyst">
 		<dependency id="Uno.SourceGenerationTasks" version="3.0.0" />
 		<dependency id="Uno.Core" version="2.3.0" />
 		<dependency id="Uno.Core.Build" version="2.3.0" />
@@ -126,6 +134,16 @@
 
 	  <!-- net6.0-ios -->
 	  <group targetFramework="net6.0-ios">
+		<reference file="Uno.Xaml.dll" />
+		<reference file="Uno.UI.dll" />
+		<reference file="Uno.Foundation.dll" />
+		<reference file="Uno.dll" />
+		<reference file="Uno.UI.Toolkit.dll" />
+		<reference file="Uno.UI.FluentTheme.dll" />
+	  </group>
+
+	  <!-- net6.0-maccatalyst -->
+	  <group targetFramework="net6.0-maccatalyst">
 		<reference file="Uno.Xaml.dll" />
 		<reference file="Uno.UI.dll" />
 		<reference file="Uno.Foundation.dll" />

@@ -206,7 +206,7 @@
 
 	<Target Name="PublishVisx" Condition="'$(UNO_UWP_BUILD)'=='true'">
 		<Copy SourceFiles="..\src\SolutionTemplate\UnoSolutionTemplate.VISX\bin\Release\UnoSolutionTemplate.VSIX.vsix"
-					DestinationFiles="$(OutputDir)\vslatest\UnoPlatform-$(GITVERSION_SemVer).vsix" />
+					DestinationFiles="$(OutputDir)\vslatest-generic\UnoPlatform-$(GITVERSION_SemVer).vsix" />
 	</Target>
 
 	<Target Name="PrepareNuGetPackage">
